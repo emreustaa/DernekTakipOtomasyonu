@@ -27,7 +27,6 @@ public class KullaniciGiris extends javax.swing.JFrame {
     /**
      * Creates new form KullaniciGiris
      */
-   
     Connection con = getConnection();
 
     ArrayList<Kullanici> users = new ArrayList<>();
@@ -38,7 +37,7 @@ public class KullaniciGiris extends javax.swing.JFrame {
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/postgresqlproject/home.png")).getImage());
         this.setTitle("Kullanıcı Giriş Ekranı");
         this.setResizable(false);
-        
+
     }
 
     /**
@@ -350,7 +349,7 @@ public class KullaniciGiris extends javax.swing.JFrame {
         this.setTitle("Kullanıcı Ekle");
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/postgresqlproject/add.png")).getImage());
         //kullaniciEkle();
-    
+
     }//GEN-LAST:event_btnPersonelEkleActionPerformed
 
     private void txtSoyadEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSoyadEkleActionPerformed
@@ -374,36 +373,40 @@ public class KullaniciGiris extends javax.swing.JFrame {
         // TODO add your handling code here:
         String kullaniciAdi = txtKullaniciAdiGiris.getText().toString();
         String sifre = txtSifreGiris.getText().toString();
+        boolean iceriyorMu = false;
+
         if (con != null) {
 
             try {
-                String selectSql = "select \"kullanici\".\"kullaniciId\",kullanici.ad,kullanici.soyad,\"kullanici\".\"kullaniciAdi\",kullanici.sifre,il.isim as il,ilce.isim as ilce from kullanici inner join il on kullanici.il = \"il\".\"ilId\" INNER JOIN ilce on kullanici.ilce = \"ilce\".\"ilceId\"";
+                String selectSql = "select \"kullaniciId\",kullanici.ad,kullanici.soyad,\"kullaniciAdi\",kullanici.sifre,il.isim as il,ilce.isim as ilce from kullanici inner join il on kullanici.il = \"il\".\"ilId\" INNER JOIN ilce on kullanici.ilce = \"ilce\".\"ilceId\"";
 
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(selectSql);
 
                 while (rs.next()) {
 
-                    users.add(new Kullanici(rs.getInt("kullaniciId"), rs.getString("ad"), rs.getString("soyad"), rs.getString("kullaniciAdi"), rs.getString("sifre"), rs.getString("il"), rs.getString("ilce")));
+                    if (kullaniciAdi.contains(rs.getString("kullaniciAdi")) && sifre.contains(rs.getString("sifre"))) {
 
-                }
-                for (Kullanici user : users) {
+                        iceriyorMu = true;
 
-                    if (kullaniciAdi.equals(user.getKullaniciAdi()) && sifre.equals(user.getSifre())) {
-
-                        Bursiyer bursiyer = new Bursiyer();
-                        this.dispose();
-                        bursiyer.setVisible(true);
-                        System.out.println("Kullanıcı Girişi Başarılı!");
-                        break;
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Bilgileriniz hatalı lütfen kontrol ediniz!");
-                        break;
+                    }
+                    if (!kullaniciAdi.contains(rs.getString("kullaniciAdi")) && !sifre.contains(rs.getString("sifre"))) {
+                        iceriyorMu = false;
 
                     }
 
-
                 }
+
+                if (iceriyorMu == true) {
+                    AnaSayfa bursiyer = new AnaSayfa();
+                    this.dispose();
+                    bursiyer.setVisible(true);
+                    System.out.println("Kullanıcı Girişi Başarılı!");
+                } else {
+                    System.out.println("Eşit değil");
+                    JOptionPane.showMessageDialog(this, "Bilgileriniz hatalı lütfen kontrol ediniz!");
+                }
+
             } catch (SQLException ex) {
 
                 JOptionPane.showMessageDialog(this, "Hata : " + ex);
@@ -536,7 +539,7 @@ public class KullaniciGiris extends javax.swing.JFrame {
                         stmt.close();
                         break;
 
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(this, "Girmiş olduğunuz kullanıcı adı sistemde yer almaktadır.");
                         break;
                     }

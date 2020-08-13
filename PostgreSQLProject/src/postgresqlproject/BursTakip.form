@@ -24,49 +24,61 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="lblToplamKullaniciSayisiEtiket" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblToplamKullaniciSayisi" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnEkle" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnGuncelle" min="-2" pref="99" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnKullaniciSil" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnGeri" min="-2" pref="77" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jScrollPane1" min="-2" pref="558" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="lblOdenenBursEtiket" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lblOdenenToplam" min="-2" pref="43" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lblToplamBursEtiket" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblToplamBurs" min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnEkle" min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnGuncellle" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnSil" min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnGeri" min="-2" pref="77" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane1" min="-2" pref="590" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="308" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="417" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnGeri" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnKullaniciSil" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnGuncelle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSil" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGuncellle" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnEkle" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblToplamKullaniciSayisiEtiket" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblToplamKullaniciSayisi" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblToplamBursEtiket" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblToplamBurs" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblOdenenBursEtiket" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOdenenToplam" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -74,10 +86,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="T&#xfc;m Kullan&#x131;c&#x131;lar"/>
+        <Property name="text" type="java.lang.String" value="BURS TAK&#x130;B&#x130;"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -87,7 +96,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tblTumKullanicilar">
+        <Component class="javax.swing.JTable" name="tblBurs">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="0" rowCount="4"/>
@@ -104,20 +113,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGeriActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnKullaniciSil">
+    <Component class="javax.swing.JButton" name="btnSil">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sil"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKullaniciSilActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSilActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnGuncelle">
+    <Component class="javax.swing.JButton" name="btnGuncellle">
       <Properties>
         <Property name="text" type="java.lang.String" value="G&#xfc;ncelle"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuncelleActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuncellleActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEkle">
@@ -128,12 +137,22 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEkleActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblToplamKullaniciSayisiEtiket">
+    <Component class="javax.swing.JLabel" name="lblToplamBursEtiket">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Toplam Kullan&#x131;c&#x131; Say&#x131;s&#x131; : "/>
+        <Property name="text" type="java.lang.String" value="Toplam Bursiyer Say&#x131;s&#x131; : "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblToplamKullaniciSayisi">
+    <Component class="javax.swing.JLabel" name="lblToplamBurs">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOdenenBursEtiket">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xd6;denen Burs Miktar&#x131; : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOdenenToplam">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>

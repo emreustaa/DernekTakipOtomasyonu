@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import static postgresqlproject.ConnectionTest.getConnection;
 
@@ -27,6 +28,7 @@ public class TumKullanicilar extends javax.swing.JFrame {
     java.sql.Connection con = getConnection();
     DefaultTableModel dtm = new DefaultTableModel();
     String[] columns = {"Kullanıcı Id", "Ad", "Soyad", "Kullanıcı Adı", "Şifre", "İl", "İlçe"};
+    DefaultListModel dlm = new DefaultListModel();
 
     public TumKullanicilar() {
         initComponents();
@@ -34,6 +36,9 @@ public class TumKullanicilar extends javax.swing.JFrame {
         dtm.setColumnIdentifiers(columns);
         getUser();
         tblTumKullanicilar.setModel(dtm);
+        toplamKullaniciSayisi();
+        this.setResizable(false);
+        
 
     }
 
@@ -53,6 +58,8 @@ public class TumKullanicilar extends javax.swing.JFrame {
         btnKullaniciSil = new javax.swing.JButton();
         btnGuncelle = new javax.swing.JButton();
         btnEkle = new javax.swing.JButton();
+        lblToplamKullaniciSayisiEtiket = new javax.swing.JLabel();
+        lblToplamKullaniciSayisi = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,14 +107,22 @@ public class TumKullanicilar extends javax.swing.JFrame {
             }
         });
 
+        lblToplamKullaniciSayisiEtiket.setText("Toplam Kullanıcı Sayısı : ");
+
+        lblToplamKullaniciSayisi.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(lblToplamKullaniciSayisiEtiket)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblToplamKullaniciSayisi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEkle, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnGuncelle, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,14 +130,12 @@ public class TumKullanicilar extends javax.swing.JFrame {
                         .addComponent(btnKullaniciSil)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnGeri, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(33, 33, 33)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(257, 257, 257)
-                            .addComponent(jLabel1))))
-                .addContainerGap(63, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,8 +149,10 @@ public class TumKullanicilar extends javax.swing.JFrame {
                     .addComponent(btnGeri)
                     .addComponent(btnKullaniciSil)
                     .addComponent(btnGuncelle)
-                    .addComponent(btnEkle))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(btnEkle)
+                    .addComponent(lblToplamKullaniciSayisiEtiket)
+                    .addComponent(lblToplamKullaniciSayisi))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,6 +164,7 @@ public class TumKullanicilar extends javax.swing.JFrame {
         this.dispose();
         KullaniciGiris userLogin = new KullaniciGiris();
         userLogin.setVisible(true);
+
 
     }//GEN-LAST:event_btnGeriActionPerformed
 
@@ -188,9 +204,32 @@ public class TumKullanicilar extends javax.swing.JFrame {
 
                 }
                 for (Kullanici user : users) {
-                    dtm.addRow(new Object[]{user.getKullaniciId(), user.getAd(), user.getSoyad(), user.getKullaniciAdi(), user.getSifre(), user.getIl(), user.getIlce()});
+                    dtm.addRow(new Object[]{user.getKullaniciId(), user.getAd(), user.getSoyad(), user.getKullaniciAdi(),
+                        user.getSifre(), user.getIl(), user.getIlce()});
 
                 }
+            } catch (SQLException ex) {
+                Logger.getLogger(KullaniciGiris.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+
+    public void toplamKullaniciSayisi() {
+
+        if (con != null) {
+
+            try {
+                String selectSql = "select kullaniciSay()";
+
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(selectSql);
+
+                while (rs.next()) {
+
+                    lblToplamKullaniciSayisi.setText(rs.getString("kullaniciSay"));
+                }
+
             } catch (SQLException ex) {
                 Logger.getLogger(KullaniciGiris.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -241,6 +280,8 @@ public class TumKullanicilar extends javax.swing.JFrame {
     private javax.swing.JButton btnKullaniciSil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblToplamKullaniciSayisi;
+    private javax.swing.JLabel lblToplamKullaniciSayisiEtiket;
     private javax.swing.JTable tblTumKullanicilar;
     // End of variables declaration//GEN-END:variables
 }
