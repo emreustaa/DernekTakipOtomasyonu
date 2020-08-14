@@ -25,6 +25,8 @@ public class DemirbasGuncelle extends javax.swing.JFrame {
     Connection conn = getConnection();
     public DemirbasGuncelle() {
         initComponents();
+        this.setTitle("Demirbaş Güncelleme Ekranı");
+        this.setResizable(false);
     }
 
     /**

@@ -130,8 +130,8 @@ public class BursiyerGuncelle extends javax.swing.JFrame {
     private void btnKaydetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaydetActionPerformed
         // TODO add your handling code here:
 
-        int id = Integer.valueOf(txtGuncellenecekId.getText().toString());
-        String yeniMail = txtYeniMail.getText().toString();
+        int id = Integer.valueOf(txtGuncellenecekId.getText());
+        String yeniMail = txtYeniMail.getText();
         if (conn != null) {
             
             try {

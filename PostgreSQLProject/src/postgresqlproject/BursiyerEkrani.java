@@ -85,9 +85,7 @@ public class BursiyerEkrani extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBursiyerler = new javax.swing.JTable();
-        btnSil = new javax.swing.JButton();
         btnGuncelle = new javax.swing.JButton();
-        btnEkle = new javax.swing.JButton();
         lblToplamBursiyerEtiket = new javax.swing.JLabel();
         lblToplamBursiyer = new javax.swing.JLabel();
         btnGeri = new javax.swing.JButton();
@@ -111,16 +109,12 @@ public class BursiyerEkrani extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblBursiyerler);
 
-        btnSil.setText("Sil");
-
         btnGuncelle.setText("Güncelle");
         btnGuncelle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuncelleActionPerformed(evt);
             }
         });
-
-        btnEkle.setText("Ekle");
 
         lblToplamBursiyerEtiket.setText("Toplam Bursiyer Sayısı: ");
 
@@ -156,12 +150,8 @@ public class BursiyerEkrani extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblToplamBursiyer, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEkle, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnGuncelle, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSil, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnGeri, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,9 +173,7 @@ public class BursiyerEkrani extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSil)
                     .addComponent(btnGuncelle)
-                    .addComponent(btnEkle)
                     .addComponent(lblToplamBursiyerEtiket)
                     .addComponent(lblToplamBursiyer)
                     .addComponent(btnGeri))
@@ -320,11 +308,9 @@ $toplam$ language plpgsql;
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEkle;
     private javax.swing.JButton btnGeri;
     private javax.swing.JButton btnGoruntule;
     private javax.swing.JButton btnGuncelle;
-    private javax.swing.JButton btnSil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

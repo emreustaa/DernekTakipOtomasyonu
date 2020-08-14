@@ -31,12 +31,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblToplamBursiyer" min="-2" pref="84" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnEkle" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnGuncelle" min="-2" pref="98" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnSil" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnGeri" min="-2" pref="77" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="961" max="-2" attributes="0"/>
@@ -66,9 +62,7 @@
               <Component id="jScrollPane1" min="-2" pref="453" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnSil" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnGuncelle" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnEkle" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblToplamBursiyerEtiket" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblToplamBursiyer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnGeri" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -104,11 +98,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnSil">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Sil"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="btnGuncelle">
       <Properties>
         <Property name="text" type="java.lang.String" value="G&#xfc;ncelle"/>
@@ -116,11 +105,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuncelleActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnEkle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ekle"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblToplamBursiyerEtiket">
       <Properties>
